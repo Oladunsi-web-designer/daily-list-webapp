@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="todo-app" aria-label="To-do list app">
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Plan your day</p>
+            <h1>Daily List</h1>
+          </div>
+          <div class="date-pill" id="dateLabel">Today</div>
+        </header>
+
+        <form id="todoForm" class="todo-form" autocomplete="off">
+          <label class="sr-only" for="taskInput">Add a task</label>
+          <input
+            id="taskInput"
+            type="text"
+            maxlength="120"
+            placeholder="Add a task..."
+            aria-label="Add a task"
+          />
+          <button type="submit">Add</button>
+        </form>
+
+        <div class="toolbar" aria-label="Task filters">
+          <div class="filters" role="tablist" aria-label="Filter tasks">
+            <button class="filter-btn active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-btn" type="button" data-filter="active" role="tab" aria-selected="false">Active</button>
+            <button class="filter-btn" type="button" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+          </div>
+          <button id="clearCompletedBtn" class="clear-btn" type="button">Clear done</button>
+        </div>
+
+        <section class="stats" aria-label="Task summary">
+          <div>
+            <span class="stat-label">Remaining</span>
+            <strong id="remainingCount">0</strong>
+          </div>
+          <div>
+            <span class="stat-label">Completed</span>
+            <strong id="completedCount">0</strong>
+          </div>
+        </section>
+
+        <ul id="todoList" class="todo-list" aria-live="polite"></ul>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
